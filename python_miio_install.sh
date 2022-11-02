@@ -1,5 +1,4 @@
 #!/bin/bash
-	path1=/usr/local/bin
 	path2=/vagrant_data/micom
 	sudo pip install python-miio
 
