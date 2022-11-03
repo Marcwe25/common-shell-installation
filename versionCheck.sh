@@ -1,7 +1,3 @@
-osName=$(cat /etc/os-release | grep -Po '^ID="\K[^"]*')
-
-
-
 
 if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
