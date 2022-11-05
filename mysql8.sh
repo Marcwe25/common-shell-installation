@@ -22,12 +22,6 @@ git clone -b local-setup https://github.com/devopshydclub/vprofile-project.git
 TMPPASS=$(sudo grep 'temporary.*root@localhost' /var/log/mysqld.log | tail -n 1 | sed 's/.*root@localhost: //')
 sudo mysql -u root -p${TMPPASS}  --connect-expired-password -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${DATABASE_PASS}';flush privileges;"
 
-
-
-
-
-
-
 #restore the dump file for the application
 #sudo mysql -u root -p${DATABASE_PASS} -e "UPDATE mysql.user SET Password=md5('${DATABASE_PASS}') WHERE user='root'"
 sudo mysql -u root -p${DATABASE_PASS} -e "DELETE FROM mysql.user WHERE user='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1')"
